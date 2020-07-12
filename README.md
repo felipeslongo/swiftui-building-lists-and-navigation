@@ -1,2 +1,3 @@
-# swiftui-building-lists-and-navigation
- You’ll create views that can show information about any landmark, and dynamically generate a scrolling list that a user can tap to see a detail view for a landmark. To fine-tune the UI, you’ll use Xcode’s canvas to render multiple previews at different device sizes.
+# Handling User Input
+
+Use this project to code along with the [Handling User Input](https://developer.apple.com/tutorials/swiftui/handling-user-input) tutorial.
