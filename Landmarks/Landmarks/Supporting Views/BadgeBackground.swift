@@ -1,16 +1,15 @@
-//
-//  BadgeBackground.swift
-//  Landmarks
-//
-//  Created by Felipe de Souza Longo on 12/07/20.
-//  Copyright © 2020 Apple. All rights reserved.
-//
+/*
+See LICENSE folder for this sample’s licensing information.
+
+Abstract:
+A view that displays the background of a badge.
+*/
 
 import SwiftUI
 
 struct BadgeBackground: View {
     var body: some View {
-        GeometryReader {geometry in
+        GeometryReader { geometry in
             Path { path in
                 var width: CGFloat = min(geometry.size.width, geometry.size.height)
                 let height = width
@@ -49,7 +48,7 @@ struct BadgeBackground: View {
                 startPoint: .init(x: 0.5, y: 0),
                 endPoint: .init(x: 0.5, y: 0.6)
             ))
-                .aspectRatio(1, contentMode: .fit)
+            .aspectRatio(1, contentMode: .fit)
         }
     }
     static let gradientStart = Color(red: 239.0 / 255, green: 120.0 / 255, blue: 221.0 / 255)
