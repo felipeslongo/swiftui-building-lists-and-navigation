@@ -3,7 +3,7 @@
 //  Landmarks
 //
 //  Created by Felipe de Souza Longo on 14/08/20.
-//  Copyright © 2020 Apple. All rights reserved.
+//  Copyright © 2020 Apple. All rights re`served.
 //
 
 import SwiftUI
@@ -20,7 +20,7 @@ struct CategoryHome: View {
         NavigationView {
             List {
                 ForEach(categories.keys.sorted(), id: \.self) { key in
-                    Text(key)
+                    CategoryRow(categoryName: key, items: self.categories[key]!)
                 }
             }.navigationBarTitle("Featured")
         }
