@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct CategoryRow: View {
+    @EnvironmentObject var userData: UserData
     var categoryName: String
     var items: [Landmark]
     
