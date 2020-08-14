@@ -22,8 +22,8 @@ func magnitude(of range: Range<Double>) -> Double {
 extension Animation {
     static func ripple(index: Int) -> Animation {
         Animation.spring(dampingFraction: 0.5)
-        .speed(2)
-        .delay(0.03 * Double(index))
+            .speed(2)
+            .delay(0.03 * Double(index))
     }
 }
 
@@ -54,13 +54,13 @@ struct HikeGraph: View {
             HStack(alignment: .bottom, spacing: proxy.size.width / 120) {
                 ForEach(data.indices) { index in
                     GraphCapsule(
-                    index: index,
-                    height: proxy.size.height,
-                    range: data[index][keyPath: self.path],
-                    overallRange: overallRange)
-                .colorMultiply(self.color)
-                .transition(.slide)
-                .animation(.ripple(index: index))
+                        index: index,
+                        height: proxy.size.height,
+                        range: data[index][keyPath: self.path],
+                        overallRange: overallRange)
+                    .colorMultiply(self.color)
+                    .transition(.slide)
+                    .animation(.ripple(index: index))
                 }
                 .offset(x: 0, y: proxy.size.height * heightRatio)
             }
