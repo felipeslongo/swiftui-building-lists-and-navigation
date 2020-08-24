@@ -1,15 +1,13 @@
-//
-//  CategoryHome.swift
-//  Landmarks
-//
-//  Created by Felipe de Souza Longo on 14/08/20.
-//  Copyright © 2020 Apple. All rights re`served.
-//
+/*
+See LICENSE folder for this sample’s licensing information.
+
+Abstract:
+A view showing featured landmarks above a list of all of the landmarks.
+*/
 
 import SwiftUI
 
 struct CategoryHome: View {
-    @EnvironmentObject var userData: UserData
     var categories: [String: [Landmark]] {
         Dictionary(
             grouping: landmarkData,
@@ -22,6 +20,7 @@ struct CategoryHome: View {
     }
     
     @State var showingProfile = false
+    @EnvironmentObject var userData: UserData
     
     var profileButton: some View {
         Button(action: { self.showingProfile.toggle() }) {
@@ -31,7 +30,7 @@ struct CategoryHome: View {
                 .padding()
         }
     }
-    
+
     var body: some View {
         NavigationView {
             List {
@@ -53,21 +52,23 @@ struct CategoryHome: View {
             .navigationBarTitle(Text("Featured"))
             .navigationBarItems(trailing: profileButton)
             .sheet(isPresented: $showingProfile) {
-                Text("User Profile")
+                ProfileHost()
+                    .environmentObject(userData)
             }
         }
     }
-    
-    struct FeaturedLandmarks: View {
-        var landmarks: [Landmark]
-        var body: some View{
-            landmarks[0].image.resizable()
-        }
+}
+
+struct FeaturedLandmarks: View {
+    var landmarks: [Landmark]
+    var body: some View {
+        landmarks[0].image.resizable()
     }
 }
 
 struct CategoryHome_Previews: PreviewProvider {
     static var previews: some View {
         CategoryHome()
+            .environmentObject(UserData())
     }
 }
